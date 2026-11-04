@@ -2,14 +2,6 @@
 {
   "routes": [
     {
-      "route": "/.auth/login/aad",
-      "allowedRoles": ["anonymous"]
-    },
-    {
-      "route": "/*",
-      "allowedRoles": ["authenticated"]
-    },
-    {
       "route": "/*",
       "allowedRoles": ["authenticated"]
     }
@@ -25,8 +17,8 @@
       "azureActiveDirectory": {
         "registration": {
           "openIdIssuer": "https://login.microsoftonline.com/738cd91f-eda8-4968-a148-1288de7d9281/v2.0",
-"clientIdSettingName": "AZURE_CLIENT_ID",
-"clientSecretSettingName": "AZURE_CLIENT_SECRET"
+          "clientIdSettingName": "AZURE_CLIENT_ID",
+          "clientSecretSettingName": "AZURE_CLIENT_SECRET"
         }
       }
     }
