@@ -580,7 +580,7 @@ async function start(){
   if(!window.msal || !msal.PublicClientApplication) return card(`<h1>Can't load Microsoft sign-in</h1><p style="font-size:14px">The Microsoft sign-in library didn't load. Check the internet connection, or ask IT to allow <code>cdn.jsdelivr.net</code>.</p><div class="row"><button class="btn" onclick="location.reload()">Reload</button></div>`);
   backend = graphBackend;
   try {
-    msalApp = new msal.PublicClientApplication({ auth:{ clientId:cfg.clientId, authority:`https://login.microsoftonline.com/${cfg.tenant}`, redirectUri: location.href.split(/[?#]/)[0] }, cache:{ cacheLocation:"localStorage" } });
+    msalApp = new msal.PublicClientApplication({ auth:{ clientId:cfg.clientId, authority:`https://login.microsoftonline.com/${cfg.tenant}`, redirectUri: location.origin + "/", navigateToLoginRequestUrl: false }, cache:{ cacheLocation:"localStorage" } });
     if(msalApp.initialize) await msalApp.initialize();
     const res = await msalApp.handleRedirectPromise();
     if(res && res.account) msalApp.setActiveAccount(res.account);
